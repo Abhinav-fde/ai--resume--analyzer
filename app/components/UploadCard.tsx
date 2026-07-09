@@ -4,14 +4,39 @@ import { useState } from "react";
 
 export default function UploadCard() {
     const [fileName, setFileName] = useState("No file selected");
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
-    const handleFileChange = (
+    const handleFileChange = async (
         event: React.ChangeEvent<HTMLInputElement>
     ) => {
         const file = event.target.files?.[0];
 
-        if (file) {
-            setFileName(file.name);
+        if (!file) return;
+
+        setFileName(file.name);
+        setSelectedFile(file);
+
+    };
+    const handleAnalyze = async () => {
+        if (!selectedFile) {
+            alert("Please select a resume first.");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("resume", selectedFile);
+
+        try {
+            const response = await fetch("/api/analyze", {
+                method: "POST",
+                body: formData,
+            });
+
+            const data = await response.json();
+
+            console.log("Response from API:", data);
+        } catch (error) {
+            console.error("Upload failed:", error);
         }
     };
 
@@ -57,6 +82,7 @@ export default function UploadCard() {
                 </p>
 
                 <button
+                    onClick={handleAnalyze}
                     className="mt-8 bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700"
                 >
                     Analyze Resume
