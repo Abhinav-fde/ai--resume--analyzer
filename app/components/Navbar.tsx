@@ -1,23 +1,34 @@
+"use client";
+
 import Link from "next/link";
+
 export default function Navbar() {
     return (
-        <nav className="w-full flex items-center justify-between px-10 py-5 shadow-md">
-            <h1 className="text-2xl font-bold text-blue-600">
-                AI Resume Analyzer
-            </h1>
+        <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/10 border-b border-white/20 shadow-lg">
+            <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-5">
 
-            <div className="flex gap-8">
-                <Link href="/" className="hover:text-blue-600">
-                    Home
-                </Link>
+                <h1 className="text-3xl font-extrabold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                    AI Resume Analyzer
+                </h1>
 
-                <Link href="#about" className="hover:text-blue-600">
-                    About
-                </Link>
+                <div className="flex items-center gap-10">
 
-                <Link href="#upload" className="hover:text-blue-600">
-                    Upload
-                </Link>
+                    <Link
+                        href="/"
+                        className="text-white hover:text-cyan-400 transition font-medium"
+                    >
+                        Home
+                    </Link>
+
+                    <Link
+                        href="#upload"
+                        className="text-white hover:text-cyan-400 transition font-medium"
+                    >
+                        Upload
+                    </Link>
+
+                </div>
+
             </div>
         </nav>
     );
