@@ -168,13 +168,12 @@ export default function Dashboard({ analysis }: DashboardProps) {
             )}
 
             {/* Matching Skills, Strengths & Missing Skills */}
-
-            <div className="grid lg:grid-cols-3 gap-8 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                 {/* Matching Skills */}
 
-                <div className="bg-white rounded-3xl shadow-xl p-8 min-h-[420px]">
+                <div className="bg-white rounded-3xl shadow-xl p-8 min-h-[280px]">
 
-                    <div className="flex items-center gap-3 mb-6">
+                    <div className="flex items-center justify-center gap-3 mb-6">
 
                         <CheckCircle
                             className="text-green-600"
@@ -195,7 +194,7 @@ export default function Dashboard({ analysis }: DashboardProps) {
 
                                 <span
                                     key={index}
-                                    className="bg-green-100 text-green-700 border border-green-300 px-4 py-2 rounded-full font-bold"
+                                    className="bg-green-100 text-green-700 border border-green-300 px-3 py-1.5 rounded-full font-bold"
                                 >
                                     ✓ {skill}
                                 </span>
@@ -204,7 +203,7 @@ export default function Dashboard({ analysis }: DashboardProps) {
 
                         ) : (
 
-                            <p className="text-gray-500">
+                            <p className="text-black font-medium leading-7">
                                 No matching skills found.
                             </p>
 
@@ -217,9 +216,9 @@ export default function Dashboard({ analysis }: DashboardProps) {
 
                 {/* Strengths */}
 
-                <div className="bg-white rounded-3xl shadow-xl p-8 min-h-[420px]">
+                <div className="bg-white rounded-3xl shadow-xl p-8 min-h-[280px]">
 
-                    <div className="flex items-center gap-3 mb-6">
+                    <div className="flex items-center justify-center gap-3 mb-6">
 
                         <CheckCircle
                             className="text-green-600"
@@ -238,7 +237,9 @@ export default function Dashboard({ analysis }: DashboardProps) {
 
                             <div
                                 key={index}
-                                className="bg-white border-l-4 border-green-500 rounded-xl shadow-md p-4 text-black text-base font-semibold leading-7"
+                                className="
+bg-green-50 rounded-xl p-4 border border-green-200 text-black font-medium
+"
                             >
                                 ✅ {item}
                             </div>
@@ -251,9 +252,9 @@ export default function Dashboard({ analysis }: DashboardProps) {
 
                 {/* Missing Skills */}
 
-                <div className="bg-white rounded-3xl shadow-xl p-8 min-h-[420px]">
+                <div className="bg-white rounded-3xl shadow-xl p-8 min-h-[280px]">
 
-                    <div className="flex items-center gap-3 mb-6">
+                    <div className="flex items-center justify-center gap-3 mb-6">
 
                         <XCircle
                             className="text-red-600"
@@ -272,7 +273,7 @@ export default function Dashboard({ analysis }: DashboardProps) {
 
                             <span
                                 key={index}
-                                className="bg-red-100 text-red-800 border border-red-300 px-4 py-2 rounded-full font-bold"
+                                className="bg-red-100 text-red-800 border border-red-300 px-3 py-1.5 rounded-full font-bold"
                             >
                                 {item}
                             </span>

@@ -132,53 +132,86 @@ export default function UploadCard() {
 
         const doc = new jsPDF();
 
+        const leftMargin = 20;
+        const contentWidth = 170;
+        const pageBottom = 275;
+        const lineHeight = 7;
+
+        let y = 20;
+
+        const checkPageBreak = (requiredSpace = 15) => {
+            if (y + requiredSpace > pageBottom) {
+                doc.addPage();
+                y = 20;
+            }
+        };
+
+        const addHeading = (heading: string) => {
+            checkPageBreak(20);
+
+            y += 8;
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(14);
+            doc.text(heading, leftMargin, y);
+
+            y += 10;
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(11);
+        };
+
+        const addWrappedText = (text: string, x = leftMargin) => {
+            const width = contentWidth - (x - leftMargin);
+            const lines = doc.splitTextToSize(text, width);
+
+            for (const line of lines) {
+                checkPageBreak(lineHeight);
+                doc.text(line, x, y);
+                y += lineHeight;
+            }
+        };
+
+        const addBulletList = (items: string[]) => {
+            items.forEach((item) => {
+                const lines = doc.splitTextToSize(
+                    `• ${item}`,
+                    contentWidth - 5
+                );
+
+                lines.forEach((line: string) => {
+                    checkPageBreak(lineHeight);
+                    doc.text(line, 25, y);
+                    y += lineHeight;
+                });
+
+                y += 2;
+            });
+        };
+
+        doc.setFont("helvetica", "bold");
         doc.setFontSize(20);
-        doc.text("AI Resume Analysis Report", 20, 20);
+        doc.text("AI Resume Analysis Report", leftMargin, y);
+
+        y += 20;
 
         doc.setFontSize(14);
-        doc.text(`ATS Score: ${analysis.atsScore}%`, 20, 40);
-
-        let y = 60;
-
-        doc.text("Summary:", 20, y);
-        y += 10;
-
-        doc.text(analysis.summary, 20, y, {
-            maxWidth: 170,
-        });
-
-        y += 25;
-
-        doc.text("Strengths:", 20, y);
-
-        analysis.strengths.forEach((item) => {
-            y += 10;
-            doc.text("• " + item, 25, y);
-        });
+        doc.text(`ATS Score: ${analysis.atsScore}%`, leftMargin, y);
 
         y += 15;
 
-        doc.text("Missing Skills:", 20, y);
+        addHeading("Summary:");
+        addWrappedText(analysis.summary);
 
-        analysis.missingSkills.forEach((item) => {
-            y += 10;
-            doc.text("• " + item, 25, y);
-        });
+        addHeading("Strengths:");
+        addBulletList(analysis.strengths);
 
-        y += 15;
+        addHeading("Missing Skills:");
+        addBulletList(analysis.missingSkills);
 
-        doc.text("Suggestions:", 20, y);
-
-        analysis.suggestions.forEach((item) => {
-            y += 10;
-            const lines = doc.splitTextToSize(item, 160);
-            doc.text(lines, 25, y);
-            y += lines.length * 8;
-        });
+        addHeading("Suggestions:");
+        addBulletList(analysis.suggestions);
 
         doc.save("Resume_Analysis_Report.pdf");
     };
-
 
     return (
         <section
