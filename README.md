@@ -16,7 +16,7 @@ bun dev
 
 Open # Live Demo
 
- [AI Resume Analyzer](https://ai-resume-analyzer-z1q5-2d772sn91-abhinav-fdes-projects.vercel.app)with your browser to see the result.
+ [Live Demo](https://ai-resume-analyzer-z1q5.vercel.app/)with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
