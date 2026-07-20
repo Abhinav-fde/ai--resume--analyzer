@@ -1,4 +1,9 @@
-const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY!;
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
+
+console.log(
+    "OPENROUTER_API_KEY loaded:",
+    OPENROUTER_API_KEY ? "YES" : "NO"
+);
 
 export async function analyzeResume(
     resumeText: string,
