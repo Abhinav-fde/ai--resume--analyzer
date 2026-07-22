@@ -4,7 +4,7 @@
 
 ### AI-Powered ATS Score & Keyword Match Analysis Platform
 
-AI Resume Analyzer is a full-stack web application that evaluates how well a resume matches a job description, returning an ATS-style compatibility score and a keyword-level gap analysis powered by the Anthropic Claude API.
+AI Resume Analyzer is a full-stack web application that evaluates how well a resume matches a job description, returning an ATS-style compatibility score and a keyword-level gap analysis powered by the OpenRouter API (Google Gemini 2.5 Flash).
 
 🌐 **Live Application:** https://ai-resume-analyzer-z1q5.vercel.app/
 
@@ -89,7 +89,8 @@ The analysis is powered through the **Anthropic Claude API**.
                     │   Next.js Frontend  │
                     │      (Vercel)       │
                     └──────────┬──────────┘
-                               │ Server-side API Route
+                               │ 
+                    Server-side API Route
                                ▼
                     ┌─────────────────────┐
                     │  Next.js API Route  │
@@ -98,11 +99,9 @@ The analysis is powered through the **Anthropic Claude API**.
                                │
                                ▼
                     ┌─────────────────────┐
-                    │   Anthropic Claude  │
-                    │        API          │
+                    │    OpenRouter API   │
                     └─────────────────────┘
-```
-
+  ```
 ---
 
 ## 🛠️ Tech Stack
@@ -118,7 +117,9 @@ The analysis is powered through the **Anthropic Claude API**.
 - PDF text extraction
 
 ### AI Integration
-- Anthropic Claude API
+
+- OpenRouter API
+- Google Gemini 2.5 Flash
 
 ### Deployment
 - Vercel — Frontend & API Routes
@@ -234,7 +235,7 @@ https://ai-resume-analyzer-z1q5.vercel.app/
 The following environment variable is required:
 
 ```env
-ANTHROPIC_API_KEY=your_anthropic_api_key
+openrouter_API_KEY=your_openroutr_api_key
 ```
 
 > Never commit API keys or `.env.local` files to GitHub.
