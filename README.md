@@ -211,6 +211,11 @@ Open:
 http://localhost:3000
 ```
 
+Or visit the live application:
+
+**https://ai-resume-analyzer-z1q5.vercel.app/**
+
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 ---
