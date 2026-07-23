@@ -1,30 +1,30 @@
 <div align="center">
 
-# 📄 AI Resume Analyzer
+#  AI Resume Analyzer
 
 ### AI-Powered ATS Score & Keyword Match Analysis Platform
 
 AI Resume Analyzer is a full-stack web application that evaluates how well a resume matches a job description, returning an ATS-style compatibility score and a keyword-level gap analysis powered by the OpenRouter API (Google Gemini 2.5 Flash).
 
-🌐 **Live Application:** https://ai-resume-analyzer-z1q5.vercel.app/
+ [![Live Application](https://img.shields.io/badge/Live%20Application-View%20Demo-brightgreen?style=for-the-badge&logo=vercel)](https://ai-resume-analyzer-z1q5.vercel.app/)
 
 </div>
 
 ---
 
-## 🚀 Features
+##  Features
 
-### 📄 Resume & Job Description Input
+###  Resume & Job Description Input
 - PDF resume upload
 - Plain-text job description paste
 - Instant, on-demand analysis with no sign-up required
 
-### 🔍 ATS Compatibility Scoring
+###  ATS Compatibility Scoring
 - Overall ATS-style compatibility score
 - Resume-to-job-description alignment assessment
 - Semantic matching, not just exact-keyword matching
 
-### 🤖 AI Keyword & Skill Gap Analysis
+###  AI Keyword & Skill Gap Analysis
 AI Resume Analyzer uses the Anthropic Claude API to read both documents and provide:
 
 - Keywords and skills present in the resume
@@ -34,15 +34,15 @@ AI Resume Analyzer uses the Anthropic Claude API to read both documents and prov
 
 The analysis is powered through the **Anthropic Claude API**.
 
-### ⚡ Instant Results
+###  Instant Results
 - Analysis runs in seconds after submission
 - No account, subscription, or payment required
 - Server-side processing keeps the Claude API key off the client
 
 ---
-## 📸 Application Preview
+##  Application Preview
 
-### 🏠 Dashboard
+###  Dashboard
 
 <p align="center">
   <img src="Screenshots/ai%20dashboard.png" width="90%" alt="Dashboard">
@@ -50,16 +50,16 @@ The analysis is powered through the **Anthropic Claude API**.
 
 ---
 
-### 📄 Resume Upload
+###  Resume Upload
 
 <p align="center">
-  <img src="Screenshots/ai%20dashboard%202.png" width="48%" alt="Resume Upload">
-  <img src="Screenshots/ai%20dashboard%203.png" width="48%" alt="Upload Interface">
+  <img src="Screenshots/ai%20dashboard.png" width="48%" alt="Resume Upload">
+  <img src="Screenshots/ai%20dashboard.png" width="48%" alt="Upload Interface">
 </p>
 
 ---
 
-### 🤖 AI Analysis
+###  AI Analysis
 
 <p align="center">
   <img src="Screenshots/ai%20resume%204.png" width="90%" alt="AI Resume Analysis">
@@ -67,7 +67,7 @@ The analysis is powered through the **Anthropic Claude API**.
 
 ---
 
-### 💡 AI Suggestions
+###  AI Suggestions
 
 <p align="center">
   <img src="Screenshots/ai%20suggestions.png" width="48%" alt="AI Suggestions">
@@ -77,34 +77,25 @@ The analysis is powered through the **Anthropic Claude API**.
 ---
 
 
-## 🏗️ Architecture
+## Architecture
 
-```text
-                    ┌─────────────────────┐
-                    │       User          │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │   Next.js Frontend  │
-                    │      (Vercel)       │
-                    └──────────┬──────────┘
-                               │ 
-                    Server-side API Route
-                               ▼
-                    ┌─────────────────────┐
-                    │  Next.js API Route  │
-                    │  (PDF text extract) │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │    OpenRouter API   │
-                    └─────────────────────┘
-  ```
----
+```mermaid
+flowchart TD
+    A[User]
+    B[Next.js Frontend<br/>Vercel]
+    C[Next.js API Route<br/>PDF Text Extraction]
+    D[OpenRouter API]
+    E[AI Resume Analysis]
+    F[Analysis Results<br/>Displayed to User]
 
-## 🛠️ Tech Stack
+    A --> B
+    B -->|Resume PDF Upload| C
+    C -->|Extracted Resume Text| D
+    D --> E
+    E -->|Structured Response| B
+    B --> F
+```
+##  Tech Stack
 
 ### Frontend
 - Next.js
@@ -131,7 +122,7 @@ The analysis is powered through the **Anthropic Claude API**.
 
 ---
 
-## 📡 API Endpoints
+##  API Endpoints
 
 | Endpoint | Method | Description |
 |---|---|---|
@@ -140,7 +131,7 @@ The analysis is powered through the **Anthropic Claude API**.
 
 ---
 
-## 📊 Analysis Output
+##  Analysis Output
 
 AI Resume Analyzer returns:
 
@@ -151,7 +142,7 @@ AI Resume Analyzer returns:
 
 ---
 
-## 🤖 AI Analysis Workflow
+##  AI Analysis Workflow
 
 ```text
 Resume (PDF) + Job Description
@@ -171,7 +162,7 @@ Next.js Frontend
 
 ---
 
-## 💻 Running Locally
+##  Running Locally
 
 ### 1. Clone the Repository
 
@@ -221,7 +212,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 ---
 
-## 🌐 Deployment
+##  Deployment
 
 The application is deployed as a single Next.js project on Vercel, with the API route running server-side alongside the frontend.
 
@@ -230,7 +221,7 @@ https://ai-resume-analyzer-z1q5.vercel.app/
 
 ---
 
-## 🔐 Environment Variables
+##  Environment Variables
 
 The following environment variable is required:
 
@@ -242,7 +233,7 @@ openrouter_API_KEY=your_openroutr_api_key
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 ai-resume-analyzer/
@@ -263,7 +254,7 @@ ai-resume-analyzer/
 
 ---
 
-## 🎯 Project Highlights
+##  Project Highlights
 
 - Full-stack AI-powered resume analysis application
 - PDF resume upload with server-side text extraction
@@ -274,7 +265,7 @@ ai-resume-analyzer/
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 - DOCX resume upload support
 - Downloadable analysis report
@@ -285,7 +276,7 @@ ai-resume-analyzer/
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Abhinav**
 
